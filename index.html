@@ -19,6 +19,7 @@
   <p onmousedown="changeParagraph(this)">Second p tag</p>
   <p onmousedown="changeParagraph(this)">Third p tag</p>
   <p onmousedown="changeParagraph(this)">Fourth p tag</p>
+  <button onmousedown="changeAllParagraphs()">Change all paragraphs</button>
 
   <h1 ondblclick="toggleBio()" onmousemove="showCoordinates(event)">Alexander Hamilton</h1>
   <p class="bio" onclick="doSomethingElse()">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
@@ -32,6 +33,13 @@
     function changeParagraph(ptag) {
       console.log("changeParagraph...");
       ptag.classList.add("red");
+    }
+    function changeAllParagraphs() {
+      var ptags = document.querySelectorAll("p");
+      console.log(ptags);
+      ptags.forEach(function(ptag) {
+        ptag.classList.add("red");
+      });
     }
     function doSomething() {
       console.log("You did something");
