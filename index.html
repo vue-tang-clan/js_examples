@@ -6,6 +6,12 @@
     .hidden {
       display: none;
     }
+    .red {
+      color: red;
+    }
+    .padded {
+      padding-left: 100px;
+    }
   </style>
 </head>
 <body>
@@ -15,6 +21,7 @@
   <p class="x-coordinate">???</p>
   <p>The y coordinate is:</p>
   <p class="y-coordinate">???</p>
+  <button onclick="changeHeaderColor()">Change stuff</button>
   <script>
     function doSomething() {
       console.log("You did something");
@@ -33,6 +40,25 @@
       console.log('hiding the bio');
       var bioTag = document.querySelector(".bio");
       bioTag.classList.toggle("hidden");
+    }
+    function changeHeaderRed() {
+      var h1tag = document.querySelector("h1");
+      h1tag.classList.add("red");
+    }
+    function changeHeaderPadding() {
+      var h1tag = document.querySelector("h1");
+      // h1tag.classList.add("padded");
+      // h1tag.style["padding-left"] = "100px";
+      h1tag.style.paddingLeft = "100px";
+    }
+    function changeHeaderColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      var h1tag = document.querySelector("h1");
+      h1tag.style["background-color"] = color;
     }
   </script>
 </body>
